@@ -1,0 +1,70 @@
+paths:
+  root: .
+  dataset: dataset
+  pdf_m3docvqa: dataset/m3docvqa/pdfs
+  pdf_frames: dataset/frames/pdfs
+  samples_m3docvqa: dataset/m3docvqa/samples.json
+  samples_frames: dataset/frames/samples.json
+  preprocessed: data/preprocessed
+  dhp_trees: data/dhp_trees
+  kg: data/kg
+  indices: data/indices
+  embeddings: data/embeddings
+  results: data/results
+models:
+  text_llm: Qwen/Qwen3-8B
+  vlm: Qwen/Qwen3-VL-8B-Instruct
+  reader: Qwen/Qwen3-VL-8B-Instruct
+  text_embedder: sentence-transformers/all-MiniLM-L6-v2
+  visual_embedder: nvidia/MM-Embed
+  layout_detector: yolov8x-doclaynet
+preprocess:
+  dpi: 300
+  detection_threshold: 0.5
+  nms_iou_threshold: 0.5
+  ocr_lang: eng
+  max_workers: 8
+dhp:
+  max_depth: 6
+kg:
+  predicate_inventory_size: 150
+  predicate_merge_threshold: 0.9
+  entity_link_threshold: 0.75
+  cross_doc_threshold: 0.8
+  max_assertions_per_block: 5
+retrieval:
+  bm25_k1: 1.5
+  bm25_b: 0.75
+  dense_top_k: 100
+  seed_top_k: 20
+  expansion_hops: 2
+  token_budget: 4500
+  max_images_per_packet: 4
+  gamma_visual: 0.6
+  initial_multiplier: 2
+  adjacent_page_bonus: 0.04
+  same_section_bonus: 0.0
+  expanded_dense_threshold: 0.35
+  expanded_accept_epsilon: 0.03
+reader:
+  temperature: 0.0
+  max_new_tokens: 512
+  context_limit: 5500
+agents:
+  react_max_steps: 5
+  react_lite_max_steps: 2
+  planrag_max_subqueries: 5
+  autogen_max_turns: 10
+evaluation:
+  anls_threshold: 0.5
+  retrieval_k_range:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
