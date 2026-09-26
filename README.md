@@ -4,11 +4,18 @@ Code for the paper **"PILAR: A Page-Grounded Unified Evidence Representation via
 
 PILAR represents multimodal document evidence as page-grounded assertion, support, and provenance objects, links them through an entity-linked assertion graph, and uses the graph as a controlled linking and ranking layer on top of a hybrid BM25 + dense page retriever. The resulting evidence packets are consumed by single-shot and multi-step QA agents (Naive RAG, ReAct, PlanRAG, AutoGen).
 
+<p align="center">
+  <img src="assets/pilar_architecture.png" alt="PILAR architecture" width="100%">
+</p>
+
+*Overview of PILAR.* Offline (left), PDFs are parsed into page-anchored units, and text-, table-, and figure-derived facts are mapped into a unified assertion space to build PILAR, a page-grounded unified evidence representation. The graph organizes evidence into entity, assertion, support, and provenance layers, with cross-document entity bridges enabling global evidence linking while page-level provenance preserves local grounding (center). At query time (right), a robust page retriever produces candidate pages, and PILAR is used as a controlled linking layer. The system returns a page-grounded evidence packet to a downstream QA agent, which can answer directly or issue a follow-up query.
+
 > **Naming note.** The project was developed under the internal name *VEGA-KG*, and some identifiers still use it. The backend `vega_kg` is **PILAR**, and `vega_page_only` is the page-only retrieval variant used in the ablation.
 
 ## Repository layout
 
 ```
+assets/                 architecture figure
 config/default.yaml     paths, models, retrieval and reader settings
 src/preprocess/         PDF rendering, OCR, layout detection, block extraction
 src/dhp/                section-path (hierarchy) recovery and document descriptors
