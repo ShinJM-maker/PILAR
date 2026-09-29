@@ -2,6 +2,8 @@
 
 Code for the paper **"PILAR: A Page-Grounded Unified Evidence Representation via an Entity-Linked Assertion Graph for Open-Domain QA Agents over Multimodal Document Corpora"** (Findings of EMNLP 2026).
 
+[[Paper (arXiv)](https://arxiv.org/abs/2609.32895)]
+
 PILAR represents multimodal document evidence as page-grounded assertion, support, and provenance objects, links them through an entity-linked assertion graph, and uses the graph as a controlled linking and ranking layer on top of a hybrid BM25 + dense page retriever. The resulting evidence packets are consumed by single-shot and multi-step QA agents (Naive RAG, ReAct, PlanRAG, AutoGen).
 
 <p align="center">
@@ -118,7 +120,9 @@ This repository contains the PILAR pipeline and the following backends from the 
   title     = {{PILAR}: A Page-Grounded Unified Evidence Representation via an Entity-Linked Assertion Graph for Open-Domain {QA} Agents over Multimodal Document Corpora},
   author    = {Shin, Joongmin and Shim, Gyuho and Lee, Jung-hun and Seo, Jaehyung},
   booktitle = {Findings of the Association for Computational Linguistics: EMNLP 2026},
-  year      = {2026}
+  year      = {2026},
+  eprint    = {2609.32895},
+  archivePrefix = {arXiv}
 }
 ```
 
